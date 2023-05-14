@@ -1,0 +1,60 @@
+#!/bin/bash
+
+function create_s3() {
+    read -p "Enter a bucket name: " name
+    aws s3 mb s3://$name
+}
+
+function list_s3() {
+    read -p "Enter a bucket name to view list: " name
+    aws s3 ls s3://$name
+}
+
+function delete_bucket() {
+    read -p "Enter a bucket name you want to delete: " name
+    aws s3 rb s3://$name
+}
+
+function upload_file() {
+    read -p "Enter a bucket name you want to upload file to: " name
+    read -p "Enter a file name that you want to upload: " file
+    aws s3 cp "/home/hadeel/Desktop/$file" s3://$name/
+}
+
+function delete_file() {
+    read -p "Enter a bucket name you want to delete a file from it: " name
+    read -p "Enter a file name that you want to delete: " file
+    aws s3 rm s3://$name/$file
+}
+
+function download_file() {
+    read -p "Enter a bucket name you want to download a file from it: " name
+    read -p "Enter a file name that you want to download: " file
+    aws s3 cp s3://$name/$file ./
+}
+
+function main() {
+    while true; do
+        echo "1. Create S3 bucket"
+        echo "2. List S3 bucket"
+        echo "3. Delete S3 bucket"
+        echo "4. Upload file"
+        echo "5. Delete file"
+        echo "6. Download file"
+        echo "7. Quit"
+
+        read -p "Choose from the list: " choice
+        case $choice in
+            1) create_s3 ;;
+            2) list_s3 ;;
+            3) delete_bucket ;;
+            4) upload_file ;;
+            5) delete_file ;;
+            6) download_file ;;
+            7) break ;;
+            *) echo "Invalid choice. Please choose from 1 to 7." ;;
+        esac
+    done
+}
+
+main
