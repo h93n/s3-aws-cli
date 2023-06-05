@@ -1,2 +1,46 @@
-# s3-aws-cli
-Write a Bash script that allows a user to perform various operations on AWS S3 bucket. The script should display a menu with the following options: 1. Upload a file 2. Download a file 3. Delete a file 4. List all files 5. Quit USE your VM in order to run this script. ➔ Implement each option using a separate function in the script. ➔ The "Upload afile" option should prompt the user to enter the local file path and the S3 bucket name, and then upload the file to the specified bucket. ➔ The "Download a file" option should prompt the user to enter the S3 bucket name and the file name, and then download the file to the current directory. ➔ The "Delete a file" option should prompt the user to enter the S3 bucket name and the file name, and then delete the file from the specified bucket. ➔ The "List all files" option should prompt the user to enter the S3 bucket name, and then list all files in the specified bucket. The script should continue to display the menu until the user selects the "Quit" option. If the user enters an invalid option, the script should display a message indicating that the option is invalid and then display the menu again.
+
+# AWS S3 Bucket Management
+
+This Bash script allows you to manage AWS S3 buckets. You can create a bucket, list the contents of a bucket, delete a bucket, upload files to a bucket, delete files from a bucket, and download files from a bucket.
+
+## Prerequisites
+
+- AWS CLI configured with proper credentials
+- Bash shell
+
+## Usage
+
+1. Make sure you have the AWS CLI installed and properly configured with your AWS credentials.
+2. Clone the repository:
+
+
+git clone git@github.com:h93n/s3-aws-cli.git
+cd your-repo
+
+3. Run the script:
+
+
+./s3_bucket_management.sh
+
+
+4. Choose an action to perform by entering the corresponding number:
+
+   1. Create S3 bucket
+   2. List S3 bucket
+   3. Delete S3 bucket
+   4. Upload file
+   5. Delete file
+   6. Download file
+   7. Quit
+
+5. Follow the prompts and provide the necessary information for the chosen action.
+
+## Functions
+
+- `create_s3`: Creates a new S3 bucket.
+- `list_s3`: Lists the objects in a specific S3 bucket.
+- `delete_bucket`: Deletes a specific S3 bucket.
+- `upload_file`: Uploads a file to a specific S3 bucket.
+- `delete_file`: Deletes a file from a specific S3 bucket.
+- `download_file`: Downloads a file from a specific S3 bucket.
+
